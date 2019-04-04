@@ -1,0 +1,30 @@
+<div class="form-group">
+  <select #tipo (change)="carregarMarcas($event.target.value)" class="form-control">
+    <option>Tipo de Veículo</option>
+    <option value="carros">Carro</option>
+    <option value="caminhoes">Caminhão</option>
+    <option value="motos">Moto</option>
+  </select>
+</div>
+<div class="form-group">
+  <select #marca (change)="carregarVeiculos(tipo.value, $event.target.value)" class="form-control">
+    <option>Marca</option>
+    <option *ngFor="let marca of marca$ | async" [value]="marca.id">{{ marca.name }}</option>
+  </select>
+</div>
+<div class="form-group">
+  <select #veiculo (change)="carregarModelos(tipo.value, marca.value, $event.target.value)" class="form-control">
+    <option>Veículo</option>
+    <option *ngFor="let veiculo of veiculo$ | async" [value]="veiculo.id">{{ veiculo.name }}</option>
+  </select>
+</div>
+<div class="form-group">
+  <select (change)="informacoesModelo(tipo.value, marca.value, veiculo.value, $event.target.value)" #modelo class="form-control">
+    <option>Modelo</option>
+    <option *ngFor="let modelo of modelo$ | async" [value]="modelo.id">{{ modelo.name }}</option>
+  </select>
+</div>
+
+<div *ngIf="(informacaoVeiculo$ | async) as informacoes">
+  <app-veiculo-info [info]="informacoes"></app-veiculo-info>
+</div>

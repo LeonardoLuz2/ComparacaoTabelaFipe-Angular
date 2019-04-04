@@ -1,0 +1,36 @@
+<div class="alert alert-primary">
+  <div class="row">
+    <div class="col">REFERÊNCIA: </div>
+    <div class="col font-weight-bold">{{ info.referencia | uppercase}}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">CÓDIGO FIPE: </div>
+    <div class="col font-weight-bold">{{ info.fipe_codigo | uppercase }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">NOME: </div>
+    <div class="col font-weight-bold">{{ info.name | uppercase }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">COMBUSTÍVEL: </div>
+    <div class="col font-weight-bold">{{ info.combustivel | uppercase }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">MARCA: </div>
+    <div class="col font-weight-bold">{{ info.marca | uppercase }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">ANO MODELO: </div>
+    <div class="col font-weight-bold">{{ (info.ano_modelo == '32000' ? 'ZERO KM' : info.ano_modelo) | uppercase }}</div>
+  </div>
+
+  <div class="row">
+    <div class="col">PREÇO: </div>
+    <div class="col font-weight-bold">{{ info.preco | uppercase }}</div>
+  </div>
+</div>
