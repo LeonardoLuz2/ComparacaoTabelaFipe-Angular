@@ -20,14 +20,17 @@ export class VeiculoFormComponent implements OnInit {
   }
 
   carregarMarcas(tipo: string) {
+    this.informacaoVeiculo$ = null;
     this.marca$ =  this.fipeService.ListarMarcas(tipo);
   }
 
   carregarVeiculos(tipo: string, marcaId: number) {
+    this.informacaoVeiculo$ = null;
     this.veiculo$ =  this.fipeService.ListarVeiculos(tipo, marcaId);
   }
 
   carregarModelos(tipo: string, marcaId: number, veiculoId: number) {
+    this.informacaoVeiculo$ = null;
     this.modelo$ =  this.fipeService.ListarModelos(tipo, marcaId, veiculoId);
   }
 
